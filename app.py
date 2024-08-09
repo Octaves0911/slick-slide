@@ -10,8 +10,11 @@ from wordcloud import WordCloud
 from sklearn.feature_extraction import text
 import matplotlib.pyplot as plt
 from collections import Counter
+from dotenv import load_dotenv
+load_dotenv()
 
-api_key = "ai71-api-bdece44d-f2f6-49b6-82ba-d7a32f55c210"
+with open(".env", "r") as file:
+    api_key = "".join(file.read().splitlines())
 client = AI71(api_key)
 messages_list = []
 embeddings = None
